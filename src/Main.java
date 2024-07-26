@@ -1,8 +1,11 @@
 import entities.AudioRecording;
 import entities.Image;
+import entities.MultimediaElement;
 import entities.Video;
 
 public class Main {
+
+
     public static void main(String[] args) {
 
         AudioRecording audio = new AudioRecording("sono un audio ", 5, 3);
@@ -24,11 +27,14 @@ public class Main {
 //        video.turnUpBrightness();
 //        video.play();
 
+        MultimediaElement[] arr = new MultimediaElement[5];
+        MultimediaElement.AddMultimediaArray(arr);
 
     }
 
-    
+
 }
+
 
 
 
