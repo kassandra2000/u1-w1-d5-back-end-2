@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class MultimediaElement {
@@ -82,6 +81,7 @@ public class MultimediaElement {
             }
         }
 
+
         while (true) {
 
             System.out.println("Scegli l'oggetto da eseguire:");
@@ -98,21 +98,26 @@ public class MultimediaElement {
             if (choice == 0) {
                 System.out.println("fine scelta");
                 break;
-            } else {
+            } else if (choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice == 5) {
                 if (arr[choice - 1] instanceof AudioRecording) {
                     System.out.println("sono un audio ");
 
                     System.out.println("1. aumenta volume \n 2. diminuisci volume \n 3. andare avanti");
                     sc.nextLine();
                     String choiceVolume = sc.nextLine();
-                    if (Objects.equals(choiceVolume, "1")) {
-                        ((AudioRecording) arr[choice - 1]).turnUpTheVolume();
-                    } else if (Objects.equals(choiceVolume, "2")) {
-                        ((AudioRecording) arr[choice - 1]).turnDownTheVolume();
-                    } else if (Objects.equals(choiceVolume, "3")) {
-                        break;
-                    } else {
-                        System.out.println("la scelta non è corretta");
+                    switch (choiceVolume) {
+                        case "1":
+                            ((AudioRecording) arr[choice - 1]).turnUpTheVolume();
+                            break;
+                        case "2":
+                            ((AudioRecording) arr[choice - 1]).turnDownTheVolume();
+                            break;
+                        case "3":
+                            break;
+                        case null:
+                        default:
+                            System.out.println("la scelta non è corretta");
+                            break;
                     }
                     ((AudioRecording) arr[choice - 1]).play();
                     System.out.println("\n");
@@ -148,18 +153,25 @@ public class MultimediaElement {
                     System.out.println("1. alza luninosità \n 2.diminuisci luninosità  \n 3. andare avanti");
                     sc.nextLine();
                     String choiceVolume = sc.nextLine();
-                    if (Objects.equals(choiceVolume, "1")) {
-                        ((Image) arr[choice - 1]).turnUpBrightness();
-                    } else if (Objects.equals(choiceVolume, "2")) {
-                        ((Image) arr[choice - 1]).lowerBrightness();
-                    } else if (Objects.equals(choiceVolume, "3")) {
-                        break;
-                    } else {
-                        System.out.println("la scelta non è corretta");
+                    switch (choiceVolume) {
+                        case "1":
+                            ((Image) arr[choice - 1]).turnUpBrightness();
+                            break;
+                        case "2":
+                            ((Image) arr[choice - 1]).lowerBrightness();
+                            break;
+                        case "3":
+                            break;
+                        case null:
+                        default:
+                            System.out.println("la scelta non è corretta");
+                            break;
                     }
                     ((Image) arr[choice - 1]).show();
                     System.out.println("\n");
                 }
+            } else {
+                System.out.println("la scelta effettuata non è corretta");
             }
         }
     }
