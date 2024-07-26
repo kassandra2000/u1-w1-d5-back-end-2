@@ -1,15 +1,20 @@
 package entities;
 
-public class Image extends MultimediaElement {
+import interfaces.Brightness;
+
+public class Image extends MultimediaElement implements Brightness {
     public Image(int brightness, String title) {
         super(brightness, title);
     }
 
-    public Image(String title, int volume, int duration, int brightness) {
-        super(title, volume, duration, brightness);
+
+    @Override
+    public void lowerBrightness() {
+        
     }
 
-    public Image(String title, int volume, int duration) {
-        super(title, volume, duration);
+    @Override
+    public void turnUpBrightness() {
+
     }
 }

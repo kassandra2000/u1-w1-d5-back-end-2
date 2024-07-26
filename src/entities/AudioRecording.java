@@ -1,15 +1,20 @@
 package entities;
 
-public class AudioRecording extends MultimediaElement {
-    public AudioRecording(int brightness, String title) {
-        super(brightness, title);
-    }
+import interfaces.Brightness;
 
-    public AudioRecording(String title, int volume, int duration, int brightness) {
-        super(title, volume, duration, brightness);
-    }
+public class AudioRecording extends MultimediaElement implements Brightness {
 
+    //costruttore
     public AudioRecording(String title, int volume, int duration) {
         super(title, volume, duration);
+    }
+
+    //metodi interfacce
+    @Override
+    public void lowerBrightness() {
+    }
+
+    @Override
+    public void turnUpBrightness() {
     }
 }
