@@ -174,6 +174,7 @@ public class MultimediaElement {
                 System.out.println("la scelta effettuata non è corretta");
             }
         }
+        sc.close();
     }
     //getter e setter
 
