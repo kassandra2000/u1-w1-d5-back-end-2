@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MultimediaElement {
@@ -100,14 +101,62 @@ public class MultimediaElement {
             } else {
                 if (arr[choice - 1] instanceof AudioRecording) {
                     System.out.println("sono un audio ");
+
+                    System.out.println("1. aumenta volume \n 2. diminuisci volume \n 3. andare avanti");
+                    sc.nextLine();
+                    String choiceVolume = sc.nextLine();
+                    if (Objects.equals(choiceVolume, "1")) {
+                        ((AudioRecording) arr[choice - 1]).turnUpTheVolume();
+                    } else if (Objects.equals(choiceVolume, "2")) {
+                        ((AudioRecording) arr[choice - 1]).turnDownTheVolume();
+                    } else if (Objects.equals(choiceVolume, "3")) {
+                        break;
+                    } else {
+                        System.out.println("la scelta non è corretta");
+                    }
                     ((AudioRecording) arr[choice - 1]).play();
                     System.out.println("\n");
                 } else if (arr[choice - 1] instanceof Video) {
                     System.out.println("sono un video");
+                    System.out.println("1. aumenta volume \n 2. diminuisci volume \n 3. alza luninosità \n 4.diminuisci luninosità  \n 5. andare avanti");
+                    sc.nextLine();
+                    String choiceVolume = sc.nextLine();
+                    switch (choiceVolume) {
+                        case "1":
+                            ((Video) arr[choice - 1]).turnUpTheVolume();
+                            break;
+                        case "2":
+                            ((Video) arr[choice - 1]).turnDownTheVolume();
+                            break;
+                        case "3":
+                            ((Video) arr[choice - 1]).turnUpBrightness();
+                            break;
+                        case "4":
+                            ((Video) arr[choice - 1]).lowerBrightness();
+                            break;
+                        case "5":
+                            break;
+                        default:
+                            System.out.println("la scelta non è corretta");
+                            break;
+                    }
+
                     ((Video) arr[choice - 1]).play();
                     System.out.println("\n");
                 } else {
                     System.out.println("sono un immagine");
+                    System.out.println("1. alza luninosità \n 2.diminuisci luninosità  \n 3. andare avanti");
+                    sc.nextLine();
+                    String choiceVolume = sc.nextLine();
+                    if (Objects.equals(choiceVolume, "1")) {
+                        ((Image) arr[choice - 1]).turnUpBrightness();
+                    } else if (Objects.equals(choiceVolume, "2")) {
+                        ((Image) arr[choice - 1]).lowerBrightness();
+                    } else if (Objects.equals(choiceVolume, "3")) {
+                        break;
+                    } else {
+                        System.out.println("la scelta non è corretta");
+                    }
                     ((Image) arr[choice - 1]).show();
                     System.out.println("\n");
                 }
