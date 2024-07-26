@@ -2,7 +2,7 @@ package entities;
 
 import java.util.Scanner;
 
-public class MultimediaElement {
+public abstract class MultimediaElement {
 
     //parametri
     private final String title;
